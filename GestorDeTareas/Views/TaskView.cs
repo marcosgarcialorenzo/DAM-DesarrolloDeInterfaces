@@ -63,7 +63,8 @@ public class TaskView
                 case 6:
                     Console.Write("Nombre: ");
                     name = Console.ReadLine();
-                    controller.DeleteTask(name);
+                    var task = controller.GetTask(name);
+                    controller.DeleteTask(task);
                     break;
                 case 10:
                     Console.WriteLine("Saliendo...");

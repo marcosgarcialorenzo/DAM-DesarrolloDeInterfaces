@@ -37,8 +37,8 @@ public class TaskController
         repository.ModifyStatus(name, newStatus);
     }
 
-    public void DeleteTask(string name)
+    public void DeleteTask(TaskItem task)
     {
-        repository.Delete(name);
+        repository.Delete(task);
     }
 }
