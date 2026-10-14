@@ -43,12 +43,8 @@ public class TaskItemRepository : ITaskItemRepository<TaskItem>
         }
     }
 
-    public void Delete(T task)
+    public void Delete(TaskItem task)
     {
-        var task = GetTask(name);
-        if (task != null)
-        {
-            tasks.Remove(task);
-        }
+        tasks.Remove(task);
     }
 }
