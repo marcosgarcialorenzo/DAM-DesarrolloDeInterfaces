@@ -57,6 +57,9 @@ public class TaskView
                     Console.Write("Nombre: ");
                     name = Console.ReadLine();
                     Console.WriteLine(controller.GetTask(name));
+                    Console.WriteLine("Tarea modificada correctamente.");
+                    Console.WriteLine("Pulsa una tecla para continuar...");
+                    Console.ReadKey();
                     break;
                 case 4:
                     Console.Write("Nombre: ");
@@ -64,6 +67,9 @@ public class TaskView
                     Console.Write("Nuevo nombre: ");
                     string newName = Console.ReadLine();
                     controller.ModifyTaskName(name, newName);
+                    Console.WriteLine("Tarea modificada correctamente.");
+                    Console.WriteLine("Pulsa una tecla para continuar...");
+                    Console.ReadKey();
                     break;
                 case 5:
                     Console.Write("Nombre: ");
@@ -71,6 +77,9 @@ public class TaskView
                     Console.Write("Nueva descripcion: ");
                     string newDescription = Console.ReadLine();
                     controller.ModifyTaskDescription(name, newDescription);
+                    Console.WriteLine("Tarea modificada correctamente.");
+                    Console.WriteLine("Pulsa una tecla para continuar...");
+                    Console.ReadKey();
                     break;
                 case 6:
                     Console.Write("Nombre: ");
@@ -80,12 +89,18 @@ public class TaskView
                     bool newStatusBool = newstatus == "Completada" ? true : false;
                     newStatusBool = newstatus == "Pendiente" ? false : false;
                     controller.ModifyTaskStatus(name, newStatusBool);
+                    Console.WriteLine("Tarea modificada correctamente.");
+                    Console.WriteLine("Pulsa una tecla para continuar...");
+                    Console.ReadKey();
                     break;
                 case 7:
                     Console.Write("Nombre: ");
                     name = Console.ReadLine();
                     var task = controller.GetTask(name);
                     controller.DeleteTask(task);
+                    Console.WriteLine("Tarea eliminada.");
+                    Console.WriteLine("Pulsa una tecla para continuar...");
+                    Console.ReadKey();
                     break;
                 case 10:
                     Console.WriteLine("Saliendo...");
