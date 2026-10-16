@@ -7,7 +7,7 @@ public class TaskView
     public void Menu(TaskController controller)
     {
         var option = 0;
-        while (option != 10)
+        while (option != 8)
         {
             Console.Clear();
             Console.WriteLine();
@@ -19,7 +19,7 @@ public class TaskView
             Console.WriteLine("5. Modificar descripción tarea");
             Console.WriteLine("6. Modificar estado tarea");
             Console.WriteLine("7. Eliminar tareas");
-            Console.WriteLine("10. Salir");
+            Console.WriteLine("8. Salir");
             Console.Write("Opción: ");
             option = Convert.ToInt32(Console.ReadLine());
             switch (option)
@@ -42,6 +42,7 @@ public class TaskView
                         Console.WriteLine("No hay tareas.");
                         break;
                     }
+
                     foreach (var taskItem in tasks)
                     {
                         var status = taskItem.Status ? "Completada" : "Pendiente";
@@ -50,14 +51,15 @@ public class TaskView
                         Console.WriteLine($"Estado: " + status);
                         Console.WriteLine();
                     }
+
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey();
                     break;
                 case 3:
                     Console.Write("Nombre: ");
                     name = Console.ReadLine();
-                    Console.WriteLine(controller.GetTask(name));
-                    Console.WriteLine("Tarea modificada correctamente.");
+                    controller.GetTask(name);
+                    Console.WriteLine();
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey();
                     break;
@@ -87,7 +89,6 @@ public class TaskView
                     Console.Write("Nuevo estado (Pendiente, Completada): ");
                     string newstatus = Console.ReadLine();
                     bool newStatusBool = newstatus == "Completada" ? true : false;
-                    newStatusBool = newstatus == "Pendiente" ? false : false;
                     controller.ModifyTaskStatus(name, newStatusBool);
                     Console.WriteLine("Tarea modificada correctamente.");
                     Console.WriteLine("Pulsa una tecla para continuar...");
@@ -102,7 +103,7 @@ public class TaskView
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey();
                     break;
-                case 10:
+                case 8:
                     Console.WriteLine("Saliendo...");
                     break;
                 default:
