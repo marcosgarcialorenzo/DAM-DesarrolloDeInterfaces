@@ -17,6 +17,11 @@ public class TaskController
         repository.Add(new TaskItem(name, description));
     }
 
+    public List<TaskItem> ListTasks()
+    {
+        return repository.GetAll();
+    }
+
     public TaskItem GetTask(string name)
     {
         return repository.GetTask(name);

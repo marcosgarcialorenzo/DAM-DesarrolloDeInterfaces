@@ -11,6 +11,11 @@ public class TaskItemRepository : ITaskItemRepository<TaskItem>
         tasks.Add(task);
     }
 
+    public List<TaskItem> GetAll()
+    {
+        return tasks;
+    }
+
     public TaskItem GetTask(string name)
     {
         return tasks.FirstOrDefault(t => t.Name == name);
