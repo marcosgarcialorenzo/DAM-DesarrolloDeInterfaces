@@ -1,6 +1,6 @@
-﻿using ConsoleApp2.Controllers;
+﻿using GestorDeTareas.Controllers;
 
-namespace ConsoleApp2.Views;
+namespace GestorDeTareas.Views;
 
 public class TaskView
 {

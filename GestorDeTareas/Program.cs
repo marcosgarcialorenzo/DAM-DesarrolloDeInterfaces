@@ -1,6 +1,6 @@
-﻿using ConsoleApp2.Controllers;
-using ConsoleApp2.Repositories;
-using ConsoleApp2.Views;
+﻿using GestorDeTareas.Controllers;
+using GestorDeTareas.Repositories;
+using GestorDeTareas.Views;
 
 internal class Program
 {

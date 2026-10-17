@@ -1,7 +1,7 @@
-﻿using ConsoleApp2.Models;
-using ConsoleApp2.Repositories;
+﻿using GestorDeTareas.Models;
+using GestorDeTareas.Repositories;
 
-namespace ConsoleApp2.Controllers;
+namespace GestorDeTareas.Controllers;
 
 public class TaskController
 {

@@ -1,6 +1,6 @@
-﻿using ConsoleApp2.Models;
+﻿using GestorDeTareas.Models;
 
-namespace ConsoleApp2.Repositories;
+namespace GestorDeTareas.Repositories;
 
 public class TaskItemRepository : ITaskItemRepository<TaskItem>
 {
