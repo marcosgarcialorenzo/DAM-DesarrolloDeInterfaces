@@ -40,16 +40,17 @@ public class TaskView
                     if (tasks.Count == 0)
                     {
                         Console.WriteLine("No hay tareas.");
-                        break;
                     }
-
-                    foreach (var taskItem in tasks)
+                    else
                     {
-                        var status = taskItem.Status ? "Completada" : "Pendiente";
-                        Console.WriteLine($"Nombre: {taskItem.Name}");
-                        Console.WriteLine($"Descripción: {taskItem.Description}");
-                        Console.WriteLine($"Estado: " + status);
-                        Console.WriteLine();
+                        foreach (var taskItem in tasks)
+                        {
+                            var status = taskItem.Status ? "Completada" : "Pendiente";
+                            Console.WriteLine($"Nombre: {taskItem.Name}");
+                            Console.WriteLine($"Descripción: {taskItem.Description}");
+                            Console.WriteLine($"Estado: " + status);
+                            Console.WriteLine();
+                        }
                     }
 
                     Console.WriteLine("Pulsa una tecla para continuar...");
