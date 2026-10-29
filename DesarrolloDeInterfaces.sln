@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorDeTareas", "GestorDeTareas\GestorDeTareas.csproj", "{0BCA0EBF-1DB1-46D8-A73D-7DE888A59B14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{886AA1B6-24B9-46BC-8796-994AADB035D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorDeTareasGrafico", "GestorDeTareasGrafico\GestorDeTareasGrafico.csproj", "{886AA1B6-24B9-46BC-8796-994AADB035D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

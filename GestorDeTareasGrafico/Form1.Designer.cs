@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1;
+﻿namespace GestorDeTareasGrafico;
 
 partial class Form1
 {
@@ -73,7 +73,7 @@ partial class Form1
         button1.TabIndex = 1;
         button1.Text = "button1";
         button1.UseVisualStyleBackColor = true;
-        // 
+        //
         // button2
         // 
         button2.Dock = System.Windows.Forms.DockStyle.Fill;

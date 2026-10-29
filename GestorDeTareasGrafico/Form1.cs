@@ -1,4 +1,4 @@
-namespace WinFormsApp1;
+namespace GestorDeTareasGrafico;
 
 public partial class Form1 : Form
 {
