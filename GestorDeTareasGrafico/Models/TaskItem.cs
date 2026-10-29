@@ -2,15 +2,11 @@
 
 public class TaskItem
 {
-    private string name;
-    private string description;
-    private bool status;
-
     public TaskItem(string name, string description)
     {
         this.Name = name;
         this.Description = description;
-        this.Status = status;
+        this.Status = false; // false porque la tarea no se ha completado aun
     }
 
     public string Name { get; set; }
