@@ -2,9 +2,9 @@
 
 namespace GestorDeTareas.Views;
 
-public class TaskView
+public class TaskItemView
 {
-    public void Menu(TaskController controller)
+    public void Menu(TaskItemController itemController)
     {
         var option = 0;
         while (option != 8)
@@ -29,14 +29,14 @@ public class TaskView
                     string name = Console.ReadLine();
                     Console.Write("Descripción: ");
                     string description = Console.ReadLine();
-                    controller.AddTask(name, description);
+                    itemController.AddTask(name, description);
                     Console.WriteLine("Tarea añadida correctamente.");
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey(); // sin esto simplemete no se ve console.write debido aque lo imprime pero justo despues vuelve al while vuelve a imprimir el menu
                     break;
                 case 2:
                     Console.WriteLine("Listado de tareas:");
-                    var tasks = controller.ListTasks();
+                    var tasks = itemController.ListTasks();
                     if (tasks.Count == 0)
                     {
                         Console.WriteLine("No hay tareas.");
@@ -59,7 +59,7 @@ public class TaskView
                 case 3:
                     Console.Write("Nombre: ");
                     name = Console.ReadLine();
-                    controller.GetTask(name);
+                    itemController.GetTask(name);
                     Console.WriteLine();
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey();
@@ -69,7 +69,7 @@ public class TaskView
                     name = Console.ReadLine();
                     Console.Write("Nuevo nombre: ");
                     string newName = Console.ReadLine();
-                    controller.ModifyTaskName(name, newName);
+                    itemController.ModifyTaskName(name, newName);
                     Console.WriteLine("Tarea modificada correctamente.");
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey();
@@ -79,7 +79,7 @@ public class TaskView
                     name = Console.ReadLine();
                     Console.Write("Nueva descripcion: ");
                     string newDescription = Console.ReadLine();
-                    controller.ModifyTaskDescription(name, newDescription);
+                    itemController.ModifyTaskDescription(name, newDescription);
                     Console.WriteLine("Tarea modificada correctamente.");
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey();
@@ -90,7 +90,7 @@ public class TaskView
                     Console.Write("Nuevo estado (Pendiente, Completada): ");
                     string newstatus = Console.ReadLine();
                     bool newStatusBool = newstatus == "Completada" ? true : false;
-                    controller.ModifyTaskStatus(name, newStatusBool);
+                    itemController.ModifyTaskStatus(name, newStatusBool);
                     Console.WriteLine("Tarea modificada correctamente.");
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey();
@@ -98,8 +98,8 @@ public class TaskView
                 case 7:
                     Console.Write("Nombre: ");
                     name = Console.ReadLine();
-                    var task = controller.GetTask(name);
-                    controller.DeleteTask(task);
+                    var task = itemController.GetTask(name);
+                    itemController.DeleteTask(task);
                     Console.WriteLine("Tarea eliminada.");
                     Console.WriteLine("Pulsa una tecla para continuar...");
                     Console.ReadKey();

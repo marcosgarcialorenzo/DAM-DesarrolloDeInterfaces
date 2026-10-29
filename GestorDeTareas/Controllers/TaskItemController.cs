@@ -3,11 +3,11 @@ using GestorDeTareas.Repositories;
 
 namespace GestorDeTareas.Controllers;
 
-public class TaskController
+public class TaskItemController
 {
     private readonly TaskItemRepository repository;
 
-    public TaskController(TaskItemRepository repository)
+    public TaskItemController(TaskItemRepository repository)
     {
         this.repository = repository;
     }

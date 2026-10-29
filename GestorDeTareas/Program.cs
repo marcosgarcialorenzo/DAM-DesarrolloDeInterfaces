@@ -6,9 +6,9 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-       TaskView taskView = new TaskView();
+       TaskItemView taskItemView = new TaskItemView();
        TaskItemRepository taskRepository = new TaskItemRepository();
-       TaskController taskController = new TaskController(taskRepository);
-       taskView.Menu(taskController);
+       TaskItemController taskItemController = new TaskItemController(taskRepository);
+       taskItemView.Menu(taskItemController);
     }
 }
