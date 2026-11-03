@@ -5,9 +5,9 @@ namespace GestorDeTareasGrafico.Controllers;
 
 public class TaskItemController
 {
-    private readonly TaskItemRepository repository;
+    private readonly ITaskItemRepository<TaskItem> repository;
 
-    public TaskItemController(TaskItemRepository repository)
+    public TaskItemController(ITaskItemRepository<TaskItem> repository)
     {
         this.repository = repository;
     }
