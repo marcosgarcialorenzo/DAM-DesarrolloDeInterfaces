@@ -12,6 +12,6 @@ static class Program
         TaskItemRepository taskRepository = new TaskItemRepository();
         TaskItemController taskItemController = new TaskItemController(taskRepository);
         ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
+        Application.Run(new Form1(taskItemController));
     }
 }
