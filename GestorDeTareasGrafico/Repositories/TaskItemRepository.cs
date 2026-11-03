@@ -1,79 +1,55 @@
-using System.Text.Json;
-using GestorDeTareas.Models;
+﻿using GestorDeTareasGrafico.Models;
 
-namespace GestorDeTareas.Repositories;
+namespace GestorDeTareasGrafico.Repositories;
 
 public class TaskItemRepository : ITaskItemRepository<TaskItem>
 {
-    private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
-
-    private readonly string filePath;
-    private readonly List<TaskItem> tasks;
-
-    public TaskItemRepository(string filePath)
-    {
-        this.filePath = filePath;
-        tasks = Load();
-    }
+    private List<TaskItem> tasks = new List<TaskItem>();
 
     public void Add(TaskItem task)
     {
         tasks.Add(task);
-        Save();
     }
 
     public List<TaskItem> GetAll()
     {
-        return new List<TaskItem>(tasks);
+        return tasks;
     }
 
-    public TaskItem GetById(Guid id)
+    public TaskItem GetTask(string name)
     {
-        return tasks.FirstOrDefault(t => t.Id == id);
+        return tasks.FirstOrDefault(t => t.Name == name);
     }
 
-    public void Update(Guid id, string name, string description, bool status)
+    public void ModifyName(string name, string newName)
     {
-        var task = GetById(id);
-        if (task == null) return;
-
-        task.Name = name;
-        task.Description = description;
-        task.Status = status;
-        Save();
+        var task = GetTask(name);
+        if (task != null)
+        {
+            task.Name = newName;
+        }
     }
 
-    public void Delete(Guid id)
+    public void ModifyDescription(string name, string newDescription)
     {
-        var task = GetById(id);
-        if (task == null) return;
+        var task = GetTask(name);
+        if (task != null)
+        {
+            task.Description = newDescription;
+        }
+    }
 
+    public void ModifyStatus(string name, bool newStatus)
+    {
+        var task = GetTask(name);
+        if (task != null)
+        {
+            task.Status = newStatus;
+        }
+    }
+
+    public void Delete(TaskItem task)
+    {
         tasks.Remove(task);
-        Save();
-    }
-
-    // ---------- Persistencia en fichero JSON ----------
-
-    private List<TaskItem> Load()
-    {
-        try
-        {
-            if (!File.Exists(filePath))
-                return new List<TaskItem>();
-
-            var json = File.ReadAllText(filePath);
-            return JsonSerializer.Deserialize<List<TaskItem>>(json) ?? new List<TaskItem>();
-        }
-        catch (Exception ex) when (ex is JsonException || ex is IOException)
-        {
-            // Fichero corrupto o no accesible: se arranca con la lista vacía.
-            return new List<TaskItem>();
-        }
-    }
-
-    private void Save()
-    {
-        Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
-        File.WriteAllText(filePath, JsonSerializer.Serialize(tasks, JsonOptions));
     }
 }

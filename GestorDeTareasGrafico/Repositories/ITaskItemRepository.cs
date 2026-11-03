@@ -1,12 +1,15 @@
-using GestorDeTareas.Models;
+﻿using GestorDeTareasGrafico.Models;
 
-namespace GestorDeTareas.Repositories;
+namespace GestorDeTareasGrafico.Repositories;
 
 public interface ITaskItemRepository<T> where T : TaskItem
 {
-    void Add(T task);
-    List<T> GetAll();
-    T GetById(Guid id);
-    void Update(Guid id, string name, string description, bool status);
-    void Delete(Guid id);
+    public void Add(T task);
+    public List<T> GetAll();
+    public TaskItem GetTask(string name);
+    public void ModifyName(string name, string newName);
+    public void ModifyDescription(string name, string newDescription);
+    public void ModifyStatus(string name, bool newStatus);
+    public void Delete(T task);
+
 }

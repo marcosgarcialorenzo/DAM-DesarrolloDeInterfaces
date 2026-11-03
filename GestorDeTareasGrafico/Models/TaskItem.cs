@@ -1,23 +1,19 @@
-namespace GestorDeTareas.Models;
+﻿namespace GestorDeTareasGrafico.Models;
 
 public class TaskItem
 {
-    // Constructor sin parámetros: necesario para deserializar desde JSON.
-    public TaskItem()
+    private string name;
+    private string description;
+    private bool status;
+
+    public TaskItem(string name, string description)
     {
+        this.Name = name;
+        this.Description = description;
+        this.Status = status;
     }
 
-    public TaskItem(string name, string description, bool status = false)
-    {
-        Name = name;
-        Description = description;
-        Status = status;
-    }
-
-    // Identificador único: permite tener dos tareas con el mismo nombre
-    // y localizar siempre la fila correcta en la interfaz.
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string Name { get; set; } = "";
-    public string Description { get; set; } = "";
-    public bool Status { get; set; } // false = Pendiente, true = Completada
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public bool Status { get; set; }
 }

@@ -1,25 +1,16 @@
-using GestorDeTareas.Controllers;
-using GestorDeTareas.Repositories;
-using GestorDeTareas.Views;
+namespace GestorDeTareasGrafico;
 
-namespace GestorDeTareas;
-
-internal static class Program
+static class Program
 {
+    /// <summary>
+    ///  The main entry point for the application.
+    /// </summary>
     [STAThread]
     static void Main()
     {
+        // To customize application configuration such as set high DPI settings or default font,
+        // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-
-        // El fichero se guarda en %AppData%\GestorDeTareas\tareas.json
-        var filePath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "GestorDeTareas",
-            "tareas.json");
-
-        var repository = new TaskItemRepository(filePath);
-        var controller = new TaskItemController(repository);
-
-        Application.Run(new MainForm(controller));
+        Application.Run(new Form1());
     }
 }
