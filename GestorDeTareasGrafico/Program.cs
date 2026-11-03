@@ -1,17 +1,25 @@
-using GestorDeTareasGrafico.Controllers;
-using GestorDeTareasGrafico.Repositories;
-using GestorDeTareasGrafico.Views;
+using GestorDeTareas.Controllers;
+using GestorDeTareas.Repositories;
+using GestorDeTareas.Views;
 
-namespace GestorDeTareasGrafico;
+namespace GestorDeTareas;
 
-static class Program
+internal static class Program
 {
     [STAThread]
     static void Main()
     {
-        TaskItemRepository taskRepository = new TaskItemRepository();
-        TaskItemController taskItemController = new TaskItemController(taskRepository);
         ApplicationConfiguration.Initialize();
-        Application.Run(new Form1(taskItemController));
+
+        // El fichero se guarda en %AppData%\GestorDeTareas\tareas.json
+        var filePath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "GestorDeTareas",
+            "tareas.json");
+
+        var repository = new TaskItemRepository(filePath);
+        var controller = new TaskItemController(repository);
+
+        Application.Run(new MainForm(controller));
     }
 }

@@ -1,7 +1,7 @@
-﻿using GestorDeTareasGrafico.Models;
-using GestorDeTareasGrafico.Repositories;
+using GestorDeTareas.Models;
+using GestorDeTareas.Repositories;
 
-namespace GestorDeTareasGrafico.Controllers;
+namespace GestorDeTareas.Controllers;
 
 public class TaskItemController
 {
@@ -12,38 +12,50 @@ public class TaskItemController
         this.repository = repository;
     }
 
-    public void AddTask(string name, string description)
+    public void AddTask(string name, string description, bool status = false)
     {
-        repository.Add(new TaskItem(name, description));
+        name = ValidateName(name);
+        repository.Add(new TaskItem(name, description?.Trim() ?? "", status));
     }
 
-    public List<TaskItem> ListTasks()
+    public List<TaskItem> ListTasks(TaskFilter filter = TaskFilter.All)
     {
-        return repository.GetAll();
+        var all = repository.GetAll();
+        return filter switch
+        {
+            TaskFilter.Pending => all.Where(t => !t.Status).ToList(),
+            TaskFilter.Completed => all.Where(t => t.Status).ToList(),
+            _ => all
+        };
     }
 
-    public TaskItem GetTask(string name)
+    public TaskItem GetTask(Guid id)
     {
-        return repository.GetTask(name);
+        return repository.GetById(id);
     }
 
-    public void ModifyTaskName(string name, string newName)
+    public void UpdateTask(Guid id, string name, string description, bool status)
     {
-        repository.ModifyName(name, newName);
+        name = ValidateName(name);
+        repository.Update(id, name, description?.Trim() ?? "", status);
     }
 
-    public void ModifyTaskDescription(string name, string newDescription)
+    public void SetTaskStatus(Guid id, bool status)
     {
-        repository.ModifyDescription(name, newDescription);
+        var task = repository.GetById(id);
+        if (task == null) return;
+        repository.Update(id, task.Name, task.Description, status);
     }
 
-    public void ModifyTaskStatus(string name, bool newStatus)
+    public void DeleteTask(Guid id)
     {
-        repository.ModifyStatus(name, newStatus);
+        repository.Delete(id);
     }
 
-    public void DeleteTask(TaskItem task)
+    private static string ValidateName(string name)
     {
-        repository.Delete(task);
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("El nombre de la tarea no puede estar vacío.");
+        return name.Trim();
     }
 }
