@@ -17,6 +17,7 @@ public partial class Form1 : Form
         ConfigureListView();
         LoadTasks();
         btnAdd.Click += btnAdd_Click;
+        lvTasks.SelectedIndexChanged += lvTasks_SelectedIndexChanged;
     }
 
     private void ConfigureListView()
@@ -91,5 +92,25 @@ public partial class Form1 : Form
         chkCompleted.Checked = false;
         selectedTask = null;
         lvTasks.SelectedItems.Clear();
+    }
+
+    private void lvTasks_SelectedIndexChanged(object? sender, EventArgs e)
+    {
+        if (lvTasks.SelectedItems.Count == 0)
+        {
+            selectedTask = null;
+            return;
+        }
+
+        var selectedItem = lvTasks.SelectedItems[0];
+        selectedTask = selectedItem.Tag as TaskItem;
+        if (selectedTask == null)
+        {
+            return;
+        }
+
+        txtName.Text = selectedTask.Name;
+        txtDescription.Text = selectedTask.Description;
+        chkCompleted.Checked = selectedTask.Status;
     }
 }
