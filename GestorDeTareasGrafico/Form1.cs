@@ -12,12 +12,11 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-
         var repository = new TaskItemRepository();
         controller = new TaskItemController(repository);
-
         ConfigureListView();
         LoadTasks();
+        btnAdd.Click += btnAdd_Click;
     }
 
     private void ConfigureListView()
@@ -26,7 +25,6 @@ public partial class Form1 : Form
         lvTasks.GridLines = true;
         lvTasks.MultiSelect = false;
         lvTasks.HideSelection = false;
-
         lvTasks.Columns[0].Width = 100;
         lvTasks.Columns[1].Width = 180;
         lvTasks.Columns[2].Width = 90;
@@ -35,21 +33,63 @@ public partial class Form1 : Form
     private void LoadTasks()
     {
         lvTasks.Items.Clear();
-
         foreach (var task in controller.ListTasks())
         {
             string status = task.Status
                 ? "Completada"
                 : "Pendiente";
-
             var item = new ListViewItem(task.Name);
             item.SubItems.Add(task.Description);
             item.SubItems.Add(status);
-
             // Guardamos el objeto asociado a la fila
             item.Tag = task;
-
             lvTasks.Items.Add(item);
         }
+    }
+
+    private void btnAdd_Click(object? sender, EventArgs e)
+    {
+        string name = txtName.Text.Trim();
+        string description = txtDescription.Text.Trim();
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            MessageBox.Show(
+                "Debes introducir un nombre para la tarea.",
+                "Datos incorrectos",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            return;
+        }
+
+        if (controller.TaskExists(name))
+        {
+            MessageBox.Show(
+                "Ya existe una tarea con ese nombre.",
+                "Datos incorrectos",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            return;
+        }
+
+        controller.AddTask(
+            name,
+            description,
+            chkCompleted.Checked);
+        LoadTasks();
+        ClearFields();
+        MessageBox.Show(
+            "Tarea añadida correctamente.",
+            "Información",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
+    }
+
+    private void ClearFields()
+    {
+        txtName.Clear();
+        txtDescription.Clear();
+        chkCompleted.Checked = false;
+        selectedTask = null;
+        lvTasks.SelectedItems.Clear();
     }
 }
