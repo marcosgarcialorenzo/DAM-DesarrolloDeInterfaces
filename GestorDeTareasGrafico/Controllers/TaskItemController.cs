@@ -5,16 +5,16 @@ namespace GestorDeTareasGrafico.Controllers;
 
 public class TaskItemController
 {
-    private readonly TaskItemRepository repository;
+    private readonly ITaskItemRepository<TaskItem> repository;
 
-    public TaskItemController(TaskItemRepository repository)
+    public TaskItemController(ITaskItemRepository<TaskItem> repository)
     {
         this.repository = repository;
     }
 
-    public void AddTask(string name, string description)
+    public void AddTask(string name, string description, bool status = false)
     {
-        repository.Add(new TaskItem(name, description));
+        repository.Add(new TaskItem(name, description, status));
     }
 
     public List<TaskItem> ListTasks()
@@ -25,6 +25,11 @@ public class TaskItemController
     public TaskItem GetTask(string name)
     {
         return repository.GetTask(name);
+    }
+
+    public bool TaskExists(string name)
+    {
+        return repository.GetTask(name) != null;
     }
 
     public void ModifyTaskName(string name, string newName)

@@ -2,15 +2,11 @@
 
 public class TaskItem
 {
-    private string name;
-    private string description;
-    private bool status;
-
-    public TaskItem(string name, string description)
+    public TaskItem(string name, string description, bool status = false)
     {
-        this.Name = name;
-        this.Description = description;
-        this.Status = status;
+        Name = name;
+        Description = description;
+        Status = status;
     }
 
     public string Name { get; set; }
