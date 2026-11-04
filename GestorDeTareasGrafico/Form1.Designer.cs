@@ -31,9 +31,9 @@ partial class Form1
     {
         tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
         tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-        btnAdd = new System.Windows.Forms.Button();
-        btnModify = new System.Windows.Forms.Button();
         btnDelete = new System.Windows.Forms.Button();
+        btnModify = new System.Windows.Forms.Button();
+        btnAdd = new System.Windows.Forms.Button();
         chkCompleted = new System.Windows.Forms.CheckBox();
         txtDescription = new System.Windows.Forms.TextBox();
         txtName = new System.Windows.Forms.TextBox();
@@ -82,15 +82,15 @@ partial class Form1
         tableLayoutPanel2.Size = new System.Drawing.Size(366, 82);
         tableLayoutPanel2.TabIndex = 0;
         // 
-        // btnAdd
+        // btnDelete
         // 
-        btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-        btnAdd.Location = new System.Drawing.Point(3, 3);
-        btnAdd.Name = "btnAdd";
-        btnAdd.Size = new System.Drawing.Size(116, 76);
-        btnAdd.TabIndex = 0;
-        btnAdd.Text = "Añadir";
-        btnAdd.UseVisualStyleBackColor = true;
+        btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+        btnDelete.Location = new System.Drawing.Point(247, 3);
+        btnDelete.Name = "btnDelete";
+        btnDelete.Size = new System.Drawing.Size(116, 76);
+        btnDelete.TabIndex = 2;
+        btnDelete.Text = "Eliminar";
+        btnDelete.UseVisualStyleBackColor = true;
         // 
         // btnModify
         // 
@@ -102,15 +102,15 @@ partial class Form1
         btnModify.Text = "Modificar";
         btnModify.UseVisualStyleBackColor = true;
         // 
-        // btnDelete
+        // btnAdd
         // 
-        btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-        btnDelete.Location = new System.Drawing.Point(247, 3);
-        btnDelete.Name = "btnDelete";
-        btnDelete.Size = new System.Drawing.Size(116, 76);
-        btnDelete.TabIndex = 2;
-        btnDelete.Text = "Eliminar";
-        btnDelete.UseVisualStyleBackColor = true;
+        btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+        btnAdd.Location = new System.Drawing.Point(3, 3);
+        btnAdd.Name = "btnAdd";
+        btnAdd.Size = new System.Drawing.Size(116, 76);
+        btnAdd.TabIndex = 0;
+        btnAdd.Text = "Añadir";
+        btnAdd.UseVisualStyleBackColor = true;
         // 
         // chkCompleted
         // 
@@ -145,7 +145,10 @@ partial class Form1
         // 
         lvTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
         lvTasks.Dock = System.Windows.Forms.DockStyle.Fill;
+        lvTasks.FullRowSelect = true;
+        lvTasks.GridLines = true;
         lvTasks.Location = new System.Drawing.Point(3, 3);
+        lvTasks.MultiSelect = false;
         lvTasks.Name = "lvTasks";
         tableLayoutPanel1.SetRowSpan(lvTasks, 4);
         lvTasks.Size = new System.Drawing.Size(366, 402);
