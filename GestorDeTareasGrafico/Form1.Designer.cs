@@ -128,18 +128,18 @@ partial class Form1
         txtDescription.Location = new System.Drawing.Point(375, 48);
         txtDescription.Multiline = true;
         txtDescription.Name = "txtDescription";
+        txtDescription.PlaceholderText = "Descripcion";
         txtDescription.Size = new System.Drawing.Size(366, 222);
         txtDescription.TabIndex = 2;
-        txtDescription.Text = "Descripcion";
         // 
         // txtName
         // 
         txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
         txtName.Location = new System.Drawing.Point(375, 11);
         txtName.Name = "txtName";
+        txtName.PlaceholderText = "Nombre";
         txtName.Size = new System.Drawing.Size(366, 23);
         txtName.TabIndex = 3;
-        txtName.Text = "Nombre";
         // 
         // lvTasks
         // 

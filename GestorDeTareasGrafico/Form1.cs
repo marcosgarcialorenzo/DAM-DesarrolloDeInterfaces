@@ -15,8 +15,13 @@ public partial class Form1 : Form
 
         var repository = new TaskItemRepository();
         controller = new TaskItemController(repository);
-
-        //ConfigureListView();
-        //LoadTasks();
+        
+        // Form1
+        //     ↓
+        // TaskItemController
+        //     ↓
+        // TaskItemRepository
+        //     ↓
+        // List<TaskItem>
     }
 }
