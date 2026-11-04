@@ -18,6 +18,7 @@ public partial class Form1 : Form
         LoadTasks();
         btnAdd.Click += btnAdd_Click;
         lvTasks.SelectedIndexChanged += lvTasks_SelectedIndexChanged;
+        btnModify.Click += btnModify_Click;
     }
 
     private void ConfigureListView()
@@ -112,5 +113,53 @@ public partial class Form1 : Form
         txtName.Text = selectedTask.Name;
         txtDescription.Text = selectedTask.Description;
         chkCompleted.Checked = selectedTask.Status;
+    }
+
+    private void btnModify_Click(object? sender, EventArgs e)
+    {
+        if (selectedTask == null)
+        {
+            MessageBox.Show(
+                "Selecciona una tarea para modificar.",
+                "Aviso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            return;
+        }
+
+        string newName = txtName.Text.Trim();
+        string newDescription = txtDescription.Text.Trim();
+        if (string.IsNullOrWhiteSpace(newName))
+        {
+            MessageBox.Show(
+                "El nombre no puede estar vacío.",
+                "Datos incorrectos",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            return;
+        }
+
+        if (newName != selectedTask.Name &&
+            controller.TaskExists(newName))
+        {
+            MessageBox.Show(
+                "Ya existe otra tarea con ese nombre.",
+                "Datos incorrectos",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            return;
+        }
+
+        string oldName = selectedTask.Name;
+        controller.ModifyTaskName(oldName, newName);
+        controller.ModifyTaskDescription(newName, newDescription);
+        controller.ModifyTaskStatus(newName, chkCompleted.Checked);
+        LoadTasks();
+        ClearFields();
+        MessageBox.Show(
+            "Tarea modificada correctamente.",
+            "Información",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
     }
 }
