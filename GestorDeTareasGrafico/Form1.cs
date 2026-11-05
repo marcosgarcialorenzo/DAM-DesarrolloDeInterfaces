@@ -35,28 +35,31 @@ public partial class Form1 : Form
 
     private void LoadTasks()
     {
-        lvTasks.Items.Clear();
-        string selectedFilter = cmbFilter.SelectedItem?.ToString() ?? "Todas";
-        foreach (var task in controller.ListTasks())
+        lvTasks.Items.Clear(); // Vaciamos el ListView para evitar duplicar las filas al recargarlo.
+        string selectedFilter = cmbFilter.SelectedItem?.ToString() ?? "Todas"; // Leemos el filtro seleccionado; si no existe, mostramos todas las tareas.
+        foreach (var task in controller.ListTasks()) // Recorremos todas las tareas almacenadas en el controlador.
         {
-            bool showTask = selectedFilter switch
+            bool showTask = selectedFilter switch // Comprobamos si la tarea coincide con el filtro elegido.
             {
                 "Pendientes" => !task.Status,
                 "Completadas" => task.Status,
                 _ => true
             };
-            if (!showTask)
+            
+            if (!showTask) // Si no coincide, pasamos a la siguiente tarea sin mostrarla.
             {
                 continue;
             }
-
-            string status = task.Status
+            
+            string status = task.Status // Convertimos el estado booleano en un texto para la interfaz.
                 ? "Completada"
                 : "Pendiente";
-            var item = new ListViewItem(task.Name);
+            
+            var item = new ListViewItem(task.Name); // Creamos una fila con el nombre, la descripción y el estado.
             item.SubItems.Add(task.Description);
             item.SubItems.Add(status);
-            item.Tag = task;
+            item.Tag = task; // Guardamos el objeto para recuperarlo cuando el usuario lo seleccione.
+
             lvTasks.Items.Add(item);
         }
     }

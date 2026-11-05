@@ -181,15 +181,15 @@ partial class Form1
         // tableLayoutPanel3
         // 
         tableLayoutPanel3.ColumnCount = 2;
-        tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+        tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+        tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
         tableLayoutPanel3.Controls.Add(cmbFilter, 1, 0);
         tableLayoutPanel3.Controls.Add(lblFilter, 0, 0);
         tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
         tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
         tableLayoutPanel3.Name = "tableLayoutPanel3";
         tableLayoutPanel3.RowCount = 1;
-        tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+        tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
         tableLayoutPanel3.Size = new System.Drawing.Size(366, 39);
         tableLayoutPanel3.TabIndex = 5;
         // 
@@ -199,7 +199,7 @@ partial class Form1
         cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         cmbFilter.FormattingEnabled = true;
         cmbFilter.Items.AddRange(new object[] { "Todas", "Pendientes", "Completadas" });
-        cmbFilter.Location = new System.Drawing.Point(186, 8);
+        cmbFilter.Location = new System.Drawing.Point(167, 8);
         cmbFilter.Name = "cmbFilter";
         cmbFilter.Size = new System.Drawing.Size(177, 23);
         cmbFilter.TabIndex = 0;
@@ -210,9 +210,10 @@ partial class Form1
         lblFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
         lblFilter.Location = new System.Drawing.Point(3, 11);
         lblFilter.Name = "lblFilter";
-        lblFilter.Size = new System.Drawing.Size(177, 16);
+        lblFilter.Size = new System.Drawing.Size(140, 16);
         lblFilter.TabIndex = 0;
         lblFilter.Text = "Filtrar por estado:";
+        lblFilter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // Form1
         // 
@@ -220,7 +221,7 @@ partial class Form1
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
         Controls.Add(tableLayoutPanel1);
-        Text = "Form1";
+        Text = "Gestor de Tareas Grafico";
         tableLayoutPanel1.ResumeLayout(false);
         tableLayoutPanel1.PerformLayout();
         tableLayoutPanel2.ResumeLayout(false);
