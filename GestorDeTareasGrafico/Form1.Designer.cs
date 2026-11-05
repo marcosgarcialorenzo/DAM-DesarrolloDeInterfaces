@@ -42,7 +42,7 @@ partial class Form1
         columnHeader2 = new System.Windows.Forms.ColumnHeader();
         columnHeader3 = new System.Windows.Forms.ColumnHeader();
         tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-        cmFilter = new System.Windows.Forms.ComboBox();
+        cmbFilter = new System.Windows.Forms.ComboBox();
         lblFilter = new System.Windows.Forms.Label();
         tableLayoutPanel1.SuspendLayout();
         tableLayoutPanel2.SuspendLayout();
@@ -183,7 +183,7 @@ partial class Form1
         tableLayoutPanel3.ColumnCount = 2;
         tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
         tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        tableLayoutPanel3.Controls.Add(cmFilter, 1, 0);
+        tableLayoutPanel3.Controls.Add(cmbFilter, 1, 0);
         tableLayoutPanel3.Controls.Add(lblFilter, 0, 0);
         tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
         tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
@@ -193,16 +193,17 @@ partial class Form1
         tableLayoutPanel3.Size = new System.Drawing.Size(366, 39);
         tableLayoutPanel3.TabIndex = 5;
         // 
-        // cmFilter
+        // cmbFilter
         // 
-        cmFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
-        cmFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        cmFilter.FormattingEnabled = true;
-        cmFilter.Items.AddRange(new object[] { "Todas", "Pendientes", "Completadas" });
-        cmFilter.Location = new System.Drawing.Point(186, 8);
-        cmFilter.Name = "cmFilter";
-        cmFilter.Size = new System.Drawing.Size(177, 23);
-        cmFilter.TabIndex = 0;
+        cmbFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+        cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        cmbFilter.FormattingEnabled = true;
+        cmbFilter.Items.AddRange(new object[] { "Todas", "Pendientes", "Completadas" });
+        cmbFilter.Location = new System.Drawing.Point(186, 8);
+        cmbFilter.Name = "cmbFilter";
+        cmbFilter.Size = new System.Drawing.Size(177, 23);
+        cmbFilter.TabIndex = 0;
+        cmbFilter.SelectedIndexChanged += cmFilter_SelectedIndexChanged;
         // 
         // lblFilter
         // 
@@ -228,7 +229,7 @@ partial class Form1
     }
 
     private System.Windows.Forms.Label lblFilter;
-    private System.Windows.Forms.ComboBox cmFilter;
+    private System.Windows.Forms.ComboBox cmbFilter;
 
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 

@@ -195,4 +195,9 @@ public partial class Form1 : Form
             MessageBoxButtons.OK,
             MessageBoxIcon.Information);
     }
+
+    private void cmFilter_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        MessageBox.Show(cmbFilter.SelectedItem?.ToString());
+    }
 }
