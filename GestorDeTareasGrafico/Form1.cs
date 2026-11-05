@@ -36,15 +36,26 @@ public partial class Form1 : Form
     private void LoadTasks()
     {
         lvTasks.Items.Clear();
+        string selectedFilter = cmbFilter.SelectedItem?.ToString() ?? "Todas";
         foreach (var task in controller.ListTasks())
         {
+            bool showTask = selectedFilter switch
+            {
+                "Pendientes" => !task.Status,
+                "Completadas" => task.Status,
+                _ => true
+            };
+            if (!showTask)
+            {
+                continue;
+            }
+
             string status = task.Status
                 ? "Completada"
                 : "Pendiente";
             var item = new ListViewItem(task.Name);
             item.SubItems.Add(task.Description);
             item.SubItems.Add(status);
-            // Guardamos el objeto asociado a la fila
             item.Tag = task;
             lvTasks.Items.Add(item);
         }
@@ -196,8 +207,9 @@ public partial class Form1 : Form
             MessageBoxIcon.Information);
     }
 
-    private void cmFilter_SelectedIndexChanged(object sender, EventArgs e)
+    private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
     {
-        MessageBox.Show(cmbFilter.SelectedItem?.ToString());
+        LoadTasks();
+        ClearFields();
     }
 }

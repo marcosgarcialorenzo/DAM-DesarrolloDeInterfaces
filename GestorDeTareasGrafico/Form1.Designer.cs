@@ -203,7 +203,7 @@ partial class Form1
         cmbFilter.Name = "cmbFilter";
         cmbFilter.Size = new System.Drawing.Size(177, 23);
         cmbFilter.TabIndex = 0;
-        cmbFilter.SelectedIndexChanged += cmFilter_SelectedIndexChanged;
+        cmbFilter.SelectedIndexChanged += cmbFilter_SelectedIndexChanged;
         // 
         // lblFilter
         // 
