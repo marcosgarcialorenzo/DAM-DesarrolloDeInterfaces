@@ -41,8 +41,12 @@ partial class Form1
         columnHeader1 = new System.Windows.Forms.ColumnHeader();
         columnHeader2 = new System.Windows.Forms.ColumnHeader();
         columnHeader3 = new System.Windows.Forms.ColumnHeader();
+        tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+        cmFilter = new System.Windows.Forms.ComboBox();
+        lblFilter = new System.Windows.Forms.Label();
         tableLayoutPanel1.SuspendLayout();
         tableLayoutPanel2.SuspendLayout();
+        tableLayoutPanel3.SuspendLayout();
         SuspendLayout();
         // 
         // tableLayoutPanel1
@@ -54,7 +58,8 @@ partial class Form1
         tableLayoutPanel1.Controls.Add(chkCompleted, 1, 2);
         tableLayoutPanel1.Controls.Add(txtDescription, 1, 1);
         tableLayoutPanel1.Controls.Add(txtName, 1, 0);
-        tableLayoutPanel1.Controls.Add(lvTasks, 0, 0);
+        tableLayoutPanel1.Controls.Add(lvTasks, 0, 1);
+        tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 0);
         tableLayoutPanel1.Location = new System.Drawing.Point(29, 21);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
         tableLayoutPanel1.RowCount = 4;
@@ -147,11 +152,11 @@ partial class Form1
         lvTasks.Dock = System.Windows.Forms.DockStyle.Fill;
         lvTasks.FullRowSelect = true;
         lvTasks.GridLines = true;
-        lvTasks.Location = new System.Drawing.Point(3, 3);
+        lvTasks.Location = new System.Drawing.Point(3, 48);
         lvTasks.MultiSelect = false;
         lvTasks.Name = "lvTasks";
-        tableLayoutPanel1.SetRowSpan(lvTasks, 4);
-        lvTasks.Size = new System.Drawing.Size(366, 402);
+        tableLayoutPanel1.SetRowSpan(lvTasks, 3);
+        lvTasks.Size = new System.Drawing.Size(366, 357);
         lvTasks.TabIndex = 4;
         lvTasks.UseCompatibleStateImageBehavior = false;
         lvTasks.View = System.Windows.Forms.View.Details;
@@ -173,6 +178,41 @@ partial class Form1
         columnHeader3.Text = "Completada";
         columnHeader3.Width = 77;
         // 
+        // tableLayoutPanel3
+        // 
+        tableLayoutPanel3.ColumnCount = 2;
+        tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+        tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+        tableLayoutPanel3.Controls.Add(cmFilter, 1, 0);
+        tableLayoutPanel3.Controls.Add(lblFilter, 0, 0);
+        tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+        tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+        tableLayoutPanel3.Name = "tableLayoutPanel3";
+        tableLayoutPanel3.RowCount = 1;
+        tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+        tableLayoutPanel3.Size = new System.Drawing.Size(366, 39);
+        tableLayoutPanel3.TabIndex = 5;
+        // 
+        // cmFilter
+        // 
+        cmFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+        cmFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        cmFilter.FormattingEnabled = true;
+        cmFilter.Items.AddRange(new object[] { "Todas", "Pendientes", "Completadas" });
+        cmFilter.Location = new System.Drawing.Point(186, 8);
+        cmFilter.Name = "cmFilter";
+        cmFilter.Size = new System.Drawing.Size(177, 23);
+        cmFilter.TabIndex = 0;
+        // 
+        // lblFilter
+        // 
+        lblFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+        lblFilter.Location = new System.Drawing.Point(3, 11);
+        lblFilter.Name = "lblFilter";
+        lblFilter.Size = new System.Drawing.Size(177, 16);
+        lblFilter.TabIndex = 0;
+        lblFilter.Text = "Filtrar por estado:";
+        // 
         // Form1
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -183,8 +223,14 @@ partial class Form1
         tableLayoutPanel1.ResumeLayout(false);
         tableLayoutPanel1.PerformLayout();
         tableLayoutPanel2.ResumeLayout(false);
+        tableLayoutPanel3.ResumeLayout(false);
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Label lblFilter;
+    private System.Windows.Forms.ComboBox cmFilter;
+
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 
     private System.Windows.Forms.ColumnHeader columnHeader1;
     private System.Windows.Forms.ColumnHeader columnHeader2;
