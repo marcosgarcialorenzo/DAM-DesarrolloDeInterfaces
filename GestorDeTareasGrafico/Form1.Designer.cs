@@ -60,14 +60,14 @@ partial class Form1
         tableLayoutPanel1.Controls.Add(txtName, 1, 0);
         tableLayoutPanel1.Controls.Add(lvTasks, 0, 1);
         tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 0);
-        tableLayoutPanel1.Location = new System.Drawing.Point(29, 21);
+        tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
         tableLayoutPanel1.RowCount = 4;
         tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.666666F));
         tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.333336F));
         tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
         tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-        tableLayoutPanel1.Size = new System.Drawing.Size(744, 408);
+        tableLayoutPanel1.Size = new System.Drawing.Size(761, 417);
         tableLayoutPanel1.TabIndex = 0;
         // 
         // tableLayoutPanel2
@@ -80,19 +80,19 @@ partial class Form1
         tableLayoutPanel2.Controls.Add(btnModify, 1, 0);
         tableLayoutPanel2.Controls.Add(btnAdd, 0, 0);
         tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-        tableLayoutPanel2.Location = new System.Drawing.Point(375, 323);
+        tableLayoutPanel2.Location = new System.Drawing.Point(383, 332);
         tableLayoutPanel2.Name = "tableLayoutPanel2";
         tableLayoutPanel2.RowCount = 1;
         tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-        tableLayoutPanel2.Size = new System.Drawing.Size(366, 82);
+        tableLayoutPanel2.Size = new System.Drawing.Size(375, 82);
         tableLayoutPanel2.TabIndex = 0;
         // 
         // btnDelete
         // 
         btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-        btnDelete.Location = new System.Drawing.Point(247, 3);
+        btnDelete.Location = new System.Drawing.Point(253, 3);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new System.Drawing.Size(116, 76);
+        btnDelete.Size = new System.Drawing.Size(119, 76);
         btnDelete.TabIndex = 2;
         btnDelete.Text = "Eliminar";
         btnDelete.UseVisualStyleBackColor = true;
@@ -100,9 +100,9 @@ partial class Form1
         // btnModify
         // 
         btnModify.Dock = System.Windows.Forms.DockStyle.Fill;
-        btnModify.Location = new System.Drawing.Point(125, 3);
+        btnModify.Location = new System.Drawing.Point(128, 3);
         btnModify.Name = "btnModify";
-        btnModify.Size = new System.Drawing.Size(116, 76);
+        btnModify.Size = new System.Drawing.Size(119, 76);
         btnModify.TabIndex = 1;
         btnModify.Text = "Modificar";
         btnModify.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@ partial class Form1
         btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
         btnAdd.Location = new System.Drawing.Point(3, 3);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new System.Drawing.Size(116, 76);
+        btnAdd.Size = new System.Drawing.Size(119, 76);
         btnAdd.TabIndex = 0;
         btnAdd.Text = "Añadir";
         btnAdd.UseVisualStyleBackColor = true;
@@ -120,9 +120,9 @@ partial class Form1
         // chkCompleted
         // 
         chkCompleted.Dock = System.Windows.Forms.DockStyle.Fill;
-        chkCompleted.Location = new System.Drawing.Point(375, 276);
+        chkCompleted.Location = new System.Drawing.Point(383, 285);
         chkCompleted.Name = "chkCompleted";
-        chkCompleted.Size = new System.Drawing.Size(366, 41);
+        chkCompleted.Size = new System.Drawing.Size(375, 41);
         chkCompleted.TabIndex = 1;
         chkCompleted.Text = "Completado";
         chkCompleted.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@ partial class Form1
         // txtDescription
         // 
         txtDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
-        txtDescription.Location = new System.Drawing.Point(375, 48);
+        txtDescription.Location = new System.Drawing.Point(387, 53);
         txtDescription.Multiline = true;
         txtDescription.Name = "txtDescription";
         txtDescription.PlaceholderText = "Descripcion";
@@ -140,7 +140,7 @@ partial class Form1
         // txtName
         // 
         txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
-        txtName.Location = new System.Drawing.Point(375, 11);
+        txtName.Location = new System.Drawing.Point(387, 12);
         txtName.Name = "txtName";
         txtName.PlaceholderText = "Nombre";
         txtName.Size = new System.Drawing.Size(366, 23);
@@ -152,11 +152,11 @@ partial class Form1
         lvTasks.Dock = System.Windows.Forms.DockStyle.Fill;
         lvTasks.FullRowSelect = true;
         lvTasks.GridLines = true;
-        lvTasks.Location = new System.Drawing.Point(3, 48);
+        lvTasks.Location = new System.Drawing.Point(3, 50);
         lvTasks.MultiSelect = false;
         lvTasks.Name = "lvTasks";
         tableLayoutPanel1.SetRowSpan(lvTasks, 3);
-        lvTasks.Size = new System.Drawing.Size(366, 357);
+        lvTasks.Size = new System.Drawing.Size(374, 364);
         lvTasks.TabIndex = 4;
         lvTasks.UseCompatibleStateImageBehavior = false;
         lvTasks.View = System.Windows.Forms.View.Details;
@@ -190,7 +190,7 @@ partial class Form1
         tableLayoutPanel3.Name = "tableLayoutPanel3";
         tableLayoutPanel3.RowCount = 1;
         tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-        tableLayoutPanel3.Size = new System.Drawing.Size(366, 39);
+        tableLayoutPanel3.Size = new System.Drawing.Size(374, 41);
         tableLayoutPanel3.TabIndex = 5;
         // 
         // cmbFilter
@@ -199,7 +199,7 @@ partial class Form1
         cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         cmbFilter.FormattingEnabled = true;
         cmbFilter.Items.AddRange(new object[] { "Todas", "Pendientes", "Completadas" });
-        cmbFilter.Location = new System.Drawing.Point(167, 8);
+        cmbFilter.Location = new System.Drawing.Point(173, 9);
         cmbFilter.Name = "cmbFilter";
         cmbFilter.Size = new System.Drawing.Size(177, 23);
         cmbFilter.TabIndex = 0;
@@ -208,7 +208,7 @@ partial class Form1
         // lblFilter
         // 
         lblFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
-        lblFilter.Location = new System.Drawing.Point(3, 11);
+        lblFilter.Location = new System.Drawing.Point(4, 12);
         lblFilter.Name = "lblFilter";
         lblFilter.Size = new System.Drawing.Size(140, 16);
         lblFilter.TabIndex = 0;
