@@ -19,6 +19,7 @@ public partial class Form1 : Form
         btnAdd.Click += btnAdd_Click;
         lvTasks.SelectedIndexChanged += lvTasks_SelectedIndexChanged;
         btnModify.Click += btnModify_Click;
+        btnDelete.Click += btnDelete_Click;
     }
 
     private void ConfigureListView()
@@ -158,6 +159,38 @@ public partial class Form1 : Form
         ClearFields();
         MessageBox.Show(
             "Tarea modificada correctamente.",
+            "Información",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
+    }
+
+    private void btnDelete_Click(object? sender, EventArgs e)
+    {
+        if (selectedTask == null)
+        {
+            MessageBox.Show(
+                "Selecciona una tarea para eliminar.",
+                "Aviso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+            return;
+        }
+
+        DialogResult result = MessageBox.Show(
+            "¿Seguro que quieres eliminar la tarea seleccionada?",
+            "Confirmar eliminación",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+        if (result != DialogResult.Yes)
+        {
+            return;
+        }
+
+        controller.DeleteTask(selectedTask);
+        LoadTasks();
+        ClearFields();
+        MessageBox.Show(
+            "Tarea eliminada correctamente.",
             "Información",
             MessageBoxButtons.OK,
             MessageBoxIcon.Information);
