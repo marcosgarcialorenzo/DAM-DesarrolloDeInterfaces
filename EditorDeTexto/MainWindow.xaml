@@ -1,12 +1,45 @@
-﻿<Window x:Class="EditorDeTexto.MainWindow"
+﻿<Window x:Class="EditorTextoWpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EditorDeTexto"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Sin título - Editor de texto" Height="450" Width="700">
 
-    </Grid>
+    <!-- Aquí se enlazan los comandos de Abrir, Guardar y Ayuda con su código -->
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Abrir_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Guardar_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="Ayuda_Executed"/>
+    </Window.CommandBindings>
+
+    <DockPanel>
+
+        <Menu DockPanel.Dock="Top"> <!-- Esto lo deja en la parte de arriba -->
+            <MenuItem Header="_Archivo">
+                <MenuItem Header="_Abrir..." Command="ApplicationCommands.Open"/>
+                <MenuItem Header="_Guardar"  Command="ApplicationCommands.Save"/>
+            </MenuItem>
+            <MenuItem Header="_Editar"> <!-- Este item del menu tiene otros item dentre de el -->
+                <MenuItem Header="_Deshacer" Command="ApplicationCommands.Undo"
+                          CommandTarget="{Binding ElementName=txtEditor}"/>
+                <MenuItem Header="_Rehacer"  Command="ApplicationCommands.Redo"
+                          CommandTarget="{Binding ElementName=txtEditor}"/>
+                <Separator/>
+                <MenuItem Header="_Copiar"   Command="ApplicationCommands.Copy"
+                          CommandTarget="{Binding ElementName=txtEditor}"/>
+                <MenuItem Header="_Pegar"    Command="ApplicationCommands.Paste"
+                          CommandTarget="{Binding ElementName=txtEditor}"/>
+            </MenuItem>
+            <MenuItem Header="Ayuda">
+                <MenuItem Header="Acerca de..." Command="ApplicationCommands.Help"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Al ser el último elemento del DockPanel, ocupa TODO el espacio libre -->
+        <TextBox x:Name="txtEditor"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Auto"
+                 FontFamily="Consolas"
+                 FontSize="14"/>
+    </DockPanel>
 </Window>
