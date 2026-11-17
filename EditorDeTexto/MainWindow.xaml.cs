@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
 
-namespace EditorTextoWpf;
+namespace EditorDeTexto;
 
 public partial class MainWindow : Window
 {
