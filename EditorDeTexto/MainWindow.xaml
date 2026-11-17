@@ -5,31 +5,30 @@
 
     <!-- Aquí se enlazan los comandos de Abrir, Guardar y Ayuda con su código -->
     <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Open" Executed="Abrir_Executed"/>
-        <CommandBinding Command="ApplicationCommands.Save" Executed="Guardar_Executed"/>
-        <CommandBinding Command="ApplicationCommands.Help" Executed="Ayuda_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Abrir_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Guardar_Executed" />
+        <CommandBinding Command="ApplicationCommands.Help" Executed="Ayuda_Executed" />
     </Window.CommandBindings>
 
     <DockPanel>
 
         <Menu DockPanel.Dock="Top"> <!-- Esto lo deja en la parte de arriba -->
             <MenuItem Header="Archivo">
-                <MenuItem Header="Abrir..." Command="ApplicationCommands.Open"/>
-                <MenuItem Header="Guardar"  Command="ApplicationCommands.Save"/>
+                <MenuItem Header="Abrir" Command="ApplicationCommands.Open" />
+                <MenuItem Header="Guardar" Command="ApplicationCommands.Save" />
             </MenuItem>
             <MenuItem Header="Editar"> <!-- Este item del menu tiene otros item dentre de el -->
                 <MenuItem Header="Deshacer" Command="ApplicationCommands.Undo"
-                          CommandTarget="{Binding ElementName=txtEditor}"/>
-                <MenuItem Header="Rehacer"  Command="ApplicationCommands.Redo"
-                          CommandTarget="{Binding ElementName=txtEditor}"/>
-                <Separator/>
-                <MenuItem Header="Copiar"   Command="ApplicationCommands.Copy"
-                          CommandTarget="{Binding ElementName=txtEditor}"/>
-                <MenuItem Header="Pegar"    Command="ApplicationCommands.Paste"
-                          CommandTarget="{Binding ElementName=txtEditor}"/>
+                          CommandTarget="{Binding ElementName=txtEditor}" />
+                <MenuItem Header="Rehacer" Command="ApplicationCommands.Redo"
+                          CommandTarget="{Binding ElementName=txtEditor}" />
+                <Separator />
+                <MenuItem Header="Copiar" Command="ApplicationCommands.Copy"
+                          CommandTarget="{Binding ElementName=txtEditor}" />
+                <MenuItem Header="Pegar" Command="ApplicationCommands.Paste"
+                          CommandTarget="{Binding ElementName=txtEditor}" />
             </MenuItem>
-            <MenuItem Header="Ayuda">
-                <MenuItem Header="Acerca de..." Command="ApplicationCommands.Help"/>
+            <MenuItem Header="Ayuda" Command="ApplicationCommands.Help">
             </MenuItem>
         </Menu>
 
@@ -40,6 +39,6 @@
                  VerticalScrollBarVisibility="Auto"
                  HorizontalScrollBarVisibility="Auto"
                  FontFamily="Consolas"
-                 FontSize="14"/>
+                 FontSize="14" />
     </DockPanel>
 </Window>
