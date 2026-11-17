@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorDeTareas", "GestorDeT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorDeTareasGrafico", "GestorDeTareasGrafico\GestorDeTareasGrafico.csproj", "{EEB58957-FF96-44A1-8D9C-ABB537D77666}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditorDeTexto", "EditorDeTexto\EditorDeTexto.csproj", "{7974C392-D843-473E-800F-F563F31A8778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,10 @@ Global
 		{EEB58957-FF96-44A1-8D9C-ABB537D77666}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEB58957-FF96-44A1-8D9C-ABB537D77666}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEB58957-FF96-44A1-8D9C-ABB537D77666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7974C392-D843-473E-800F-F563F31A8778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7974C392-D843-473E-800F-F563F31A8778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7974C392-D843-473E-800F-F563F31A8778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7974C392-D843-473E-800F-F563F31A8778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
