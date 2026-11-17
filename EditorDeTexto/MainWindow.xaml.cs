@@ -29,7 +29,7 @@ public partial class MainWindow : Window
         {
             txtEditor.Text = File.ReadAllText(dialogo.FileName);
             _ruta = dialogo.FileName;
-            Title = Path.GetFileName(_ruta) + " - Editor de texto";
+            Title = Path.GetFileName(_ruta);
         }
         catch (FileNotFoundException)
         {
@@ -64,7 +64,7 @@ public partial class MainWindow : Window
             return;
         }
 
-        // Si todavía no tiene archivo, pedimos dónde guardarlo
+        // Tiene archivo? Si no, preguntar dónde
         if (_ruta == null)
         {
             var dialogo = new SaveFileDialog
@@ -76,11 +76,11 @@ public partial class MainWindow : Window
             if (dialogo.ShowDialog() != true) return; // el usuario canceló
             _ruta = dialogo.FileName;
         }
-
+        // Guardar el archivo, escribe
         try
         {
             File.WriteAllText(_ruta, txtEditor.Text);
-            Title = Path.GetFileName(_ruta) + " - Editor de texto";
+            Title = Path.GetFileName(_ruta);
             MessageBox.Show("Archivo guardado correctamente.", "Guardar",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
