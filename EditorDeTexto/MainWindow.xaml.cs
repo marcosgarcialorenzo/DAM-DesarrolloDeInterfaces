@@ -18,18 +18,18 @@ public partial class MainWindow : Window
     // ---------- ABRIR ----------
     private void Abrir_Executed(object sender, ExecutedRoutedEventArgs e)
     {
-        var dialogo = new OpenFileDialog
+        var dialogo = new OpenFileDialog // crea un diálogo de abrir archivo
         {
-            Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*"
+            Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*" // filtro de tipos de archivo
         };
 
         if (dialogo.ShowDialog() != true) return; // el usuario canceló
 
         try
         {
-            txtEditor.Text = File.ReadAllText(dialogo.FileName);
-            _ruta = dialogo.FileName;
-            Title = Path.GetFileName(_ruta);
+            txtEditor.Text = File.ReadAllText(dialogo.FileName); // lo lee y lo pone en el editor
+            _ruta = dialogo.FileName; // guarda la ruta del archivo abierto
+            Title = Path.GetFileName(_ruta); // cambia el título de la ventana al nombre del archivo
         }
         catch (FileNotFoundException)
         {
@@ -79,7 +79,7 @@ public partial class MainWindow : Window
         // Guardar el archivo, escribe
         try
         {
-            File.WriteAllText(_ruta, txtEditor.Text);
+            File.WriteAllText(_ruta, txtEditor.Text); //la ruta y el contenido del editor
             Title = Path.GetFileName(_ruta);
             MessageBox.Show("Archivo guardado correctamente.", "Guardar",
                 MessageBoxButton.OK, MessageBoxImage.Information);
