@@ -13,19 +13,19 @@
     <DockPanel>
 
         <Menu DockPanel.Dock="Top"> <!-- Esto lo deja en la parte de arriba -->
-            <MenuItem Header="_Archivo">
-                <MenuItem Header="_Abrir..." Command="ApplicationCommands.Open"/>
-                <MenuItem Header="_Guardar"  Command="ApplicationCommands.Save"/>
+            <MenuItem Header="Archivo">
+                <MenuItem Header="Abrir..." Command="ApplicationCommands.Open"/>
+                <MenuItem Header="Guardar"  Command="ApplicationCommands.Save"/>
             </MenuItem>
-            <MenuItem Header="_Editar"> <!-- Este item del menu tiene otros item dentre de el -->
-                <MenuItem Header="_Deshacer" Command="ApplicationCommands.Undo"
+            <MenuItem Header="Editar"> <!-- Este item del menu tiene otros item dentre de el -->
+                <MenuItem Header="Deshacer" Command="ApplicationCommands.Undo"
                           CommandTarget="{Binding ElementName=txtEditor}"/>
-                <MenuItem Header="_Rehacer"  Command="ApplicationCommands.Redo"
+                <MenuItem Header="Rehacer"  Command="ApplicationCommands.Redo"
                           CommandTarget="{Binding ElementName=txtEditor}"/>
                 <Separator/>
-                <MenuItem Header="_Copiar"   Command="ApplicationCommands.Copy"
+                <MenuItem Header="Copiar"   Command="ApplicationCommands.Copy"
                           CommandTarget="{Binding ElementName=txtEditor}"/>
-                <MenuItem Header="_Pegar"    Command="ApplicationCommands.Paste"
+                <MenuItem Header="Pegar"    Command="ApplicationCommands.Paste"
                           CommandTarget="{Binding ElementName=txtEditor}"/>
             </MenuItem>
             <MenuItem Header="Ayuda">
